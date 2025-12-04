@@ -12,6 +12,12 @@ turn_left() {
     if [ $dial -lt 0 ]; then
       dial=99
     fi
+    if [ $rotation -eq 0 ]; then
+      break
+    fi
+    if [ $dial -eq 0 ]; then
+      dial_at_zero=$((dial_at_zero + 1))
+    fi
   done
 }
 
@@ -22,6 +28,12 @@ turn_right() {
     rotation=$((rotation - 1))
     if [ $dial -gt 99 ]; then
       dial=0
+    fi
+     if [ $rotation -eq 0 ]; then
+      break
+    fi
+    if [ $dial -eq 0 ]; then
+      dial_at_zero=$((dial_at_zero + 1))
     fi
   done
 }
